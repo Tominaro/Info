@@ -5,7 +5,7 @@ public class Calculator {
 
     public static void main(String[] args) {
         Scanner scunner = new Scanner(System.in);
-        System.out.println("5 - Квадрат(в степени)");
+        System.out.println("5 - Квадратичное уравнение");
         System.out.println("4 - Сочетание");
         System.out.println("3 - Вычитание");
         System.out.println("2 - Деление");
@@ -13,29 +13,27 @@ public class Calculator {
         int choose = scunner.nextInt();
         int itog = 0;
         if (choose == 5) {
-            System.out.println("Число - ");
+            int numA;
+            System.out.println("Число C - ");
             int first = scunner.nextInt();
-            System.out.println("Степень - ");
+            System.out.println("Число B - ");
             int second = scunner.nextInt();
-            int itog2 = first;
-            if(second>0) {
-                while (1 < second) {
-                    itog2 = itog2 * first;
-                    itog = itog2;
-                    second = second - 1;
-                }
-            } else if (second<0) {
-                itog2=1;
-                while((-1)>second){
-                    itog2=itog2/first;
-                    itog=itog2;
-                    second=second+1;
-                }
+            System.out.println("Число A - ");
+            int numA = scunner.nextInt();
+            int numDiv = (second*second) - (numA*first);
+            if (numDiv<0){
+                System.out.println("Корней нет");
+            }else if(numDiv==0){
+                itog = ((-1)*second)/(numA*2);
+                System.out.println("X= "+itog);
             }else{
-                itog = 1;
+                itog=(((-1)*second)+ math.sqrt(numDiv))/(first*2);
+                int itog2=(((-1)*second)- math.sqrt(numDiv))/(first*2);
+                System.out.println("x2 = "+itog2);
+            }
             }
 
-            System.out.println("Результат - " + itog);
+            System.out.println("x = " + itog);
         }
         if (choose == 4) {
             System.out.println("Первое слагаемое - ");
